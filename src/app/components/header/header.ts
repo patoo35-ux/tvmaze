@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './',
-  styleUrls: ['']
+  templateUrl: './header',
+  styleUrls: ['./header']
 })
 export class HeaderComponent {
   // Filtre d'accès : fermé par défaut (false)
