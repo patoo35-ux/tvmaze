@@ -1,0 +1,30 @@
+<!-- Borne de recherche tactile -->
+<section class="search-section">
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery"   //Tout ce qui est tapé dans le champs de saisie -> boite mémoire
+    (keyup.enter)="onSearch()"  //Validation de la recherche
+    placeholder="Tapez le nom d'une série (ex: Batman, Friends...)" 
+  />
+  <button (click)="onSearch()">Rechercher</button>
+</section>
+
+<!-- Tête de gondole : Grille des séries trouvées -->
+<section class="shows-grid">
+  @for (item of shows; track item.show.id) { //Pour chaque série réceptionnée, un présentoir individuel
+    <article class="show-card">
+      <!-- Affiche de la série -->
+      <img 
+        [src]="item.show.image?.medium || 'https://via.placeholder.com/210x295?text=Pas+d+image'" 
+        [alt]="item.show.name"  // ou affiche générique si jaquette absente
+      />
+
+      <!-- Titre et note -->
+      <h3>{{ item.show.name }}</h3>
+      <p>Note : {{ item.show.rating?.average || 'N/A' }} / 10</p>
+
+      <!-- Bouton d'accès au rayon de détails -->
+      <a [routerLink]="['/show', item.show.id]" class="btn-details">Fiche produit</a>
+    </article>
+  }
+</section>

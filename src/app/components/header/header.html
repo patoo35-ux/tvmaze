@@ -1,0 +1,14 @@
+<nav class="header-nav">
+  <a routerLink="/" class="logo">TV-Maze</a>
+
+  <!Zone des filtres et raccourcis -->
+  <div class="actions">
+    
+    <button (click)="toggleAdultMode()" class="btn-toggle">
+      Mode Adulte : {{ isAdultMode ? 'Activé 🔞' : 'Désactivé 🛡️' }}
+    </button>
+
+    <!-- Lien d'accès direct au rayon des favoris -->
+    <a routerLink="/favoris" class="nav-link">⭐ Favoris</a>
+  </div>
+</nav>
